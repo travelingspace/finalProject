@@ -4,6 +4,7 @@
       <w>bcrypt</w>
       <w>mongo</w>
       <w>resave</w>
+      <w>signup</w>
     </words>
   </dictionary>
 </component>
