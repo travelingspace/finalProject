@@ -4,8 +4,9 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.redirect('/secret');
+    res.render('index');
 });
+
 
 /* GET Login page*/
 router.get('/login', function(req, res, next){
