@@ -1,0 +1,19 @@
+<h2>Log In to your Account</h2>
+
+<ul>
+    {{#each messages}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+<form method="post" action="/login">
+    Username: <input name="username">
+    Password: <input type = "password" name="password">
+
+    <input type="submit" value="Log In">
+</form>
+
+<p>
+    If you don't have an account, you can
+    <a href="/signup">Sign up here</a>
+</p>
