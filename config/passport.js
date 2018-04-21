@@ -1,5 +1,6 @@
 var LocalStrategy = require('passport-local');
 var User = require('../models/user');
+
 /*
 
  Note the done() method, which has various signatures.
@@ -29,9 +30,12 @@ var User = require('../models/user');
  msg=messages for app to display to user
 
  */
+
+
+
 module.exports = function(passport) {
 
-    /* serializeUser and deserializeUser are related to passport's session setup.
+    /* serializeUser and desrializeUser are related to passport's session setup.
     These provide the ability to serialize the user (save to db)
     and deserialize user (fetch from DB)
      */

@@ -21,7 +21,7 @@ router.get('/signup', function(req, res, next){
 router.post('/login', passport.authenticate('local-login', {
     successRedirect: '/secret',
     failureRedirect: '/login',
-    failureFlash: '/true'
+    failureFlash: true
 }));
 
 /* POST to signup */
@@ -49,7 +49,7 @@ function isLoggedIn(req, res, next){
 }
 
 /* GET logout page */
-router.get('logout', function(req, res, next){
+router.get('/logout', function(req, res, next){
     req.logout();
     res.redirect('/');
 });
