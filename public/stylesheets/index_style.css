@@ -1,0 +1,123 @@
+﻿body {
+    background-color: black;
+}
+
+.jumbotron {
+    background-image: url("../images/img_starry_sky_crop.jpg");
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: 'Lucida Console';
+    z-index: 10;
+}
+
+#jumbotronText {
+    bottom: 0px;
+    position: absolute;
+    margin: auto;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-left: 20%;
+}
+
+.col-sm-4 {
+    border: solid;
+    border-color: black;
+    border-radius: 15px;
+    border-width: thick;
+    background-color: rgba(75, 192, 192, 0.4);
+    padding: 30px;
+    align-content: center;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+    .col-sm-4:hover {
+        background-color: #24adff
+    }
+
+    .col-sm-4 img {
+        margin: auto;
+        border-radius: 30px;
+    }
+
+    .col-sm-4 span {
+        font-size: 2.5em;
+        color: white;
+        text-shadow: 2px darkgray;
+    }
+
+.blueBackground {
+    background-color: #24adff
+}
+
+.icon_words {
+    display: none;
+    background-color: #24adff;
+    position: relative;
+    z-index: 25;
+    padding-top: 25%;
+    margin-top: 10%;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: black;
+    text-shadow: none;
+    transition: font-size 1s;
+    -moz-transition: font-size 1s; /* Firefox 4 */
+    -webkit-transition: font-size 1s; /* Safari and Chrome */
+}
+
+    .icon_words:hover {
+        font-size: 3em;
+        color: white;
+        font-weight: bold;
+        text-shadow: 2px 0px 2px 0 #333;
+        cursor: pointer;
+    }
+
+.iconDiv {
+    position: relative;
+    z-index: 24;
+    overflow: hidden;
+}
+
+#chart_div {
+    padding-left: 5%;
+}
+
+.skills_content {
+    display: none;
+}
+
+tr:hover {
+    background-color: #24adff !important;
+    color: darkblue;
+}
+
+th {
+    color: #24adff;
+    font-weight: bold;
+    background-color: #11213a;
+}
+
+.starDiv {
+    /*padding: 10%;
+    width: 50%;
+    height: 200px;*/
+    right:5% !important;
+    top:5% !important;
+    position:relative !important;
+    z-index:1000 !important;
+    text-align:right;
+    display:inline-block !important;
+    float: right; 
+}
+
+
+
