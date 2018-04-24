@@ -1,6 +1,8 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var quoteSchema = mongoose.Schema({
+
+var quoteSchema = new Schema({
     name: String,
     quoteDate: {
         type: Date, default: Date.now()
@@ -8,10 +10,10 @@ var quoteSchema = mongoose.Schema({
     description: String,
     userID: String,
     status: {
-        Boolean, default: 1
+        type: Boolean, default: 1
     }
 });
 
-Quote = mongoose.model('Quote', quoteSchema);
+var Quote = mongoose.model('Quote', quoteSchema);
 
 module.exports = Quote;

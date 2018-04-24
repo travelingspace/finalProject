@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var Quote = require('../models/quote');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,25 +21,29 @@ router.get('/signup', function(req, res, next){
 
 /* POST to login */
 router.post('/login', passport.authenticate('local-login', {
-    successRedirect: '/secret',
+    successRedirect: '/quote',
     failureRedirect: '/login',
     failureFlash: true
 }));
 
 /* POST to signup */
 router.post('/signup', passport.authenticate('local-signup', {
-    successRedirect: '/secret',
+    successRedirect: '/quote',
     failureRedirect: '/login',
     failureFlash: true
 }))
 
-/* GET secret page */
-router.get('/secret', isLoggedIn, function(req, res, next){
+/* GET quote page and render any existing quotes for the user */
+router.get('/quote', isLoggedIn, function(req, res, next){
     var user = req.user.local;
-    res.render('secret', {
-        username: user.username
-    });
-});
+    Quote.find({userID: user.id})
+        .then( (docs) => {res.render('quote', {title:'My Quotes', quotes: docs});
+            username: user.username
+        })
+        .catch( (err) => {
+            next(err);
+        });
+ });
 
 /*middleware to verify user is logged in*/
 function isLoggedIn(req, res, next){
