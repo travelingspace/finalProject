@@ -24,11 +24,22 @@
 <!--*** view a list of submitted quote requests ***-->
 <h2>Submitted Quote Requests</h2>
 <div id="quote-list">
-    <ol>
-        {{#each quotes}}
-            <li>{{this.name}}</li>
-        {{/each}}
-    </ol>
+
+    {{#if tasks}}
+
+        <ol>
+            {{#each quotes}}
+                <li>{{this.name}}</li>
+            {{/each}}
+        </ol>
+
+    {{else}}
+
+        <p>You have not submitted any quote requests.</p>
+
+    {{/if}}
+
+
 </div>
 
 <br>
