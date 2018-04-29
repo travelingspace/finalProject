@@ -50,12 +50,23 @@ router.get('/quote', isLoggedIn, function(req, res, next){
 
 /*POST to create a new quote request*/
 router.post('/add', function(req, res, next){
-    //validate that all required fields have data
+
+    //validate that all required fields in the request body have data
     if( req.body.name && req.body.description && req.body.budget){
+
         //create the quote request
         var q = new Quote({name: req.body.quoteName, description: req.body.description, budget: req.body.budget, userID: req.body.user_id})
 
-        q.save().then(res.redirect('/quote'));
+        //save the quote to the database and redirect to the quote page
+        q.save().then( (newQuote) => {
+            console.log("New quote request created: " + newQuote);
+            res.redirect('/quote');
+        }).catch(()=> {
+            next(err);
+        });
+    }
+    else{
+        res.redirect('index');
     }
 });
 
