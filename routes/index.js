@@ -35,9 +35,12 @@ router.post('/signup', passport.authenticate('local-signup', {
 
 /* GET quote page and render any existing quotes for the user */
 router.get('/quote', isLoggedIn, function(req, res, next){
+
     var user = req.user.local;
+
+    //find all quotes where the current logged in user corresponds to the userID in the quote
     Quote.find({userID: user.id})
-        .then( (docs) => {res.render('quote', {title:'My Quotes', quotes: docs});
+        .then( (docs) => {res.render('quote', {title:'My Quote Requests', quotes: docs});
             username: user.username
         })
         .catch( (err) => {
