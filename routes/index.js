@@ -39,7 +39,7 @@ router.get('/quote', isLoggedIn, function(req, res, next){
     var user = req.user.local;
 
     //find all quotes where the current logged in user corresponds to the userID in the quote
-    Quote.find({userID: user.id})
+    Quote.find({userID: user._id})
         .then( (docs) => {res.render('quote', {title:'My Quote Requests', quotes: docs});
             username: user.username
         })
@@ -47,6 +47,17 @@ router.get('/quote', isLoggedIn, function(req, res, next){
             next(err);
         });
  });
+
+/*POST to create a new quote request*/
+router.post('/add', function(req, res, next){
+    //validate that all required fields have data
+    if( req.body.name && req.body.description && req.body.budget){
+        //create the quote request
+        var q = new Quote({name: req.body.quoteName, description: req.body.description, budget: req.body.budget, userID: req.body.user_id})
+
+        q.save().then(res.redirect('/quote'));
+    }
+});
 
 /*middleware to verify user is logged in*/
 function isLoggedIn(req, res, next){

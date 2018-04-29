@@ -9,6 +9,7 @@ var quoteSchema = new Schema({
     },
     description: String,
     userID: String,
+    budget: Number,
     status: {
         type: Boolean, default: 1
     }
