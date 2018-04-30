@@ -39,11 +39,11 @@
 
     {{#if quotes}}
 
-        <ol>
+        <ul id="quote-list">
             {{#each quotes}}
                 <li><h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>active status:</strong> {{this.status}}</li>
             {{/each}}
-        </ol>
+        </ul>
 
     {{else}}
 
