@@ -1,3 +1,13 @@
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="../public/stylesheets/index_style.css" />
+</head>
+
+
 <h2>{{title}}</h2>
 
 <br>
@@ -12,11 +22,11 @@
 <div class="add-quote">
     <h3>Add a New Quote Request</h3>
     <form id="addQuote" action="/add" method="post">
-        <input id="quote-name" name="quoteName" placeholder="enter name">
-        <input id="description" name="description" placeholder="enter request description">
-        <input id="quote-budget" name="budget" placeholder="enter budget">
-        <input id= "userIdString" type="hidden" name="user_id" value="{{userID}}"><!--hidden field that passes the logged in user's ID to body request-->
-        <input id="add-quote-btn" name="add" type="submit" value="add">
+        <input id="quote-name" name="quoteName" placeholder="enter name"><br>
+        <input id="description" name="description" placeholder="enter request description"><br>
+        <input id="quote-budget" name="budget" placeholder="enter budget"><br>
+        <input id= "userIdString" type="hidden" name="user_id" value="{{userID}}"><br><!--hidden field that passes the logged in user's ID to body request-->
+        <input id="add-quote-btn" name="add" type="submit" value="add" class="btn btn-success">
     </form>
 </div>
 
@@ -31,7 +41,7 @@
 
         <ol>
             {{#each quotes}}
-                <li>{{this.name}}</li>
+                <li><h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>active status:</strong> {{this.status}}</li>
             {{/each}}
         </ol>
 
