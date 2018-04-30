@@ -96,7 +96,12 @@ router.post('/deactivate', function(req, res, next){
 /*GET deactivated Quote Requests*/
 router.get('/deactivated', function(req, res, next){
 
-    Quote.find({status: 0})
+    //get the authenticated user object
+    var authUser = req.user;
+    //get the string of the _id of the authenticated user
+    var userIdString = authUser._id.toString();
+
+    Quote.find({status: 0, userID: userIdString})
         .then( (docs) => {
             res.render('deactivated_quotes', {quotes: docs});
         })

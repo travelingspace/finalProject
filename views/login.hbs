@@ -1,4 +1,4 @@
-<h2>Log In to your Account</h2>
+<h2>Log In or Sign Up</h2>
 
 <ul>
     {{#each messages}}
@@ -6,17 +6,8 @@
     {{/each}}
 </ul>
 
-<form method="post" action="/login">
-    Username: <input name="username">
-    Password: <input type = "password" name="password">
-
-    <input type="submit" value="Log In">
-</form>
-
-<p>
-    If you don't have an account, you can
-    <a href="/signup">Sign up here</a>
-</p>
+<br>
+<br>
 
 <div class="form-bg">
     <div class="container">
@@ -28,46 +19,36 @@
                         <li class="active" role="presentation"><a role="tab" aria-controls="home" href="#Section1" data-toggle="tab">sign in</a></li>
                         <li role="presentation"><a role="tab" aria-controls="profile" href="#Section2" data-toggle="tab">sign up</a></li>
                     </ul>
+                    <br>
                     <!-- Tab panes -->
                     <div class="tab-content tabs">
                         <div class="tab-pane fade in active" id="Section1" role="tabpanel">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="/login">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">E-mail</label>
-                                    <input class="form-control" id="exampleInputEmail1" type="email">
+                                    <label for="email">E-mail</label>
+                                    <input class="form-control" id="email" type="email" name="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Password</label>
-                                    <input class="form-control" id="exampleInputPassword1" type="password">
+                                    <label for="password">Password</label>
+                                    <input class="form-control" id="password" type="password" name="password">
                                 </div>
                                 <div class="form-group text-center">
                                     <button class="btn btn-default" type="submit">Sign in</button>
                                 </div>
-                                <div class="form-group forgot-pass">
-                                    <a href="#">forgot your password?</a>
-                                </div>
                             </form>
                         </div>
                         <div class="tab-pane fade" id="Section2" role="tabpanel">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" action="/signup">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Full Name</label>
-                                    <input class="form-control" type="text">
+                                    <label for="email">E-mail</label>
+                                    <input class="form-control" id="email" type="email" name="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input class="form-control" type="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Password</label>
-                                    <input class="form-control" type="password">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Retype Password</label>
-                                    <input class="form-control" type="password">
+                                    <label for="password">Password</label>
+                                    <input class="form-control" id="password" type="password" name="password">
                                 </div>
                                 <div class="form-group text-center">
-                                    <button class="btn btn-default" type="submit">Sign up</button>
+                                    <button class="btn btn-default" type="submit">Sign in</button>
                                 </div>
                             </form>
                         </div>
