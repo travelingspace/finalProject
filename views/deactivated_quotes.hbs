@@ -1,0 +1,38 @@
+<head>
+    <title>JAMES HOUCK</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/index_style.css" />
+
+</head>
+
+<div class="container">
+
+    <h3>Deactivated Quote Requests</h3>
+
+   {{#if quotes}}
+
+       <div class="quotes">
+           {{#each quotes}}
+               <li><h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>active status:</strong> {{this.status}}</li>
+           {{/each}}
+       </div>
+
+   {{else}}
+
+       <p>No inactive quotes currently exist.</p>
+
+   {{/if}}
+
+    <br>
+    <br>
+    <br>
+    <button onclick="window.location.href='/quote'" class="btn btn-primary">Back to Active Quotes</button>
+
+</div>
+
+
+

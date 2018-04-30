@@ -42,7 +42,7 @@ router.get('/quote', isLoggedIn, function(req, res, next){
     var userIdString = authUser._id.toString();
 
     //find all quotes where the current logged in user corresponds to the userID in the quote
-    Quote.find({userID: userIdString})
+    Quote.find({userID: userIdString, status: 1})
         .then( (docs) => {res.render('quote', {title:'My Quote Requests', quotes: docs, username: authUser.local.username, userID: userIdString});
         })
         .catch( (err) => {
@@ -73,6 +73,38 @@ router.post('/add', function(req, res, next){
         });
     }
 });
+
+/*POST to deactivate a quote request*/
+router.post('/deactivate', function(req, res, next){
+
+    Quote.findByIdAndUpdate(req.body._id, {status: 0})//find the quote record and update the status parameter to 0, which deactivates the quote record
+        .then( (originalQuote) => {
+            if(originalQuote){
+                res.redirect('/quote');//if quote was found, then redirect to the quotes page
+            } else{
+                var err = new Error('Quote Request Not found - could not deactivate');//throw custom error message if something went wrong
+                err.status = 404;
+                next(err);
+            }
+        })
+        .catch( (err) => {
+            next(err);
+        })
+
+})
+
+/*GET deactivated Quote Requests*/
+router.get('/deactivated', function(req, res, next){
+
+    Quote.find({status: 0})
+        .then( (docs) => {
+            res.render('deactivated_quotes', {quotes: docs});
+        })
+        .catch( (err) => {
+            next(err);
+        });
+});
+
 
 /*middleware to verify user is logged in*/
 function isLoggedIn(req, res, next){
