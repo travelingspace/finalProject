@@ -1,21 +1,21 @@
 <h2>{{title}}</h2>
 
 <br>
-<br>
 
 <!--*** display a welcome message with the authenticated users name ***-->
 {{#if username}}
     <p>Hello {{username}}, welcome.</p>
 {{/if}}
+<br>
 
 <!--*** add a quote request section ***-->
 <div class="add-quote">
-    <h2>Add a New Quote Request</h2>
+    <h3>Add a New Quote Request</h3>
     <form id="addQuote" action="/add" method="post">
         <input id="quote-name" name="quoteName" placeholder="enter name">
         <input id="description" name="description" placeholder="enter request description">
         <input id="quote-budget" name="budget" placeholder="enter budget">
-        <input type="hidden" name="user_id" value="{{user._id}}"><!--hidden field that passes the logged in user's ID to body request-->
+        <input id= "userIdString" type="hidden" name="user_id" value="{{userID}}"><!--hidden field that passes the logged in user's ID to body request-->
         <input id="add-quote-btn" name="add" type="submit" value="add">
     </form>
 </div>
@@ -24,10 +24,10 @@
 <br>
 
 <!--*** view a list of submitted quote requests ***-->
-<h2>Submitted Quote Requests</h2>
+<h3>Submitted Quote Requests</h3>
 <div id="quote-list">
 
-    {{#if tasks}}
+    {{#if quotes}}
 
         <ol>
             {{#each quotes}}

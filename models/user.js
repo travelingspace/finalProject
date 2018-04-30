@@ -11,10 +11,6 @@ var userSchema = mongoose.Schema({
         type: Date, default: Date.now()
     },
 
-    favorites: {
-        color: String,
-        luckyNumber: Number
-    }
 });
 
 userSchema.methods.generateHash = function(password){

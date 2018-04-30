@@ -36,12 +36,14 @@ router.post('/signup', passport.authenticate('local-signup', {
 /* GET quote page and render any existing quotes for the user */
 router.get('/quote', isLoggedIn, function(req, res, next){
 
-    var user = req.user.local;
+    //get the authenticated user object
+    var authUser = req.user;
+    //get the string of the _id of the authenticated user
+    var userIdString = authUser._id.toString();
 
     //find all quotes where the current logged in user corresponds to the userID in the quote
-    Quote.find({userID: user._id})
-        .then( (docs) => {res.render('quote', {title:'My Quote Requests', quotes: docs});
-            username: user.username
+    Quote.find({userID: userIdString})
+        .then( (docs) => {res.render('quote', {title:'My Quote Requests', quotes: docs, username: authUser.local.username, userID: userIdString});
         })
         .catch( (err) => {
             next(err);
@@ -52,21 +54,23 @@ router.get('/quote', isLoggedIn, function(req, res, next){
 router.post('/add', function(req, res, next){
 
     //validate that all required fields in the request body have data
-    if( req.body.name && req.body.description && req.body.budget){
-
+    if (!(req.body.quoteName && req.body.description && req.body.budget && req.body.user_id)) res.redirect('/quote');
+    else {
         //create the quote request
-        var q = new Quote({name: req.body.quoteName, description: req.body.description, budget: req.body.budget, userID: req.body.user_id})
+        var q = new Quote({
+            name: req.body.quoteName,
+            description: req.body.description,
+            budget: req.body.budget,
+            userID: req.body.user_id
+        });
 
         //save the quote to the database and redirect to the quote page
-        q.save().then( (newQuote) => {
-            console.log("New quote request created: " + newQuote);
+        q.save().then((newQuote) => {
+            console.log("New quote request created: ", newQuote);
             res.redirect('/quote');
-        }).catch(()=> {
+        }).catch(() => {
             next(err);
         });
-    }
-    else{
-        res.redirect('index');
     }
 });
 
