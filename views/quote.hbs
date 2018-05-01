@@ -1,3 +1,12 @@
+<head>
+    <style>
+      body{
+          background-color:black;
+          color:whitesmoke;
+      }
+    </style>
+</head>
+
 <h2>{{title}}</h2>
 
 <br>
@@ -11,7 +20,7 @@
 <!--*** add a quote request section ***-->
 <div class="add-quote">
     <h3>Add a New Quote Request</h3>
-    <form id="addQuote" action="/add" method="post">
+    <form id="addQuote" class="form-horizontal" action="/add" method="post">
         <input id="quote-name" name="quoteName" placeholder="enter name"><br>
         <input id="description" name="description" placeholder="enter request description"><br>
         <input id="quote-budget" name="budget" placeholder="enter budget"><br>

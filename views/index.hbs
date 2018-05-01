@@ -2,6 +2,7 @@
   <style>
       body {
           background-color: black;
+          color: lightblue;
       }
 
       .jumbotron {
@@ -24,7 +25,11 @@
           text-align: left;
           width: 100%;
           margin-bottom: 15px;
+          margin-left: 0 !important;
        }
+      .containerText{
+          padding-left:5%;
+      }
   </style>
 </head>
 
@@ -33,13 +38,24 @@
 
     <div id="jumbotronText">
         <h1>James Houck</h1>
-        <font style="font-size:1.25em">systems analyst | developer | business intelligence</font>
+        <span style="font-size:1.25em">systems analyst | developer | business intelligence</span>
     </div>
 
 </div>
 
 <div class="container">
-    <button onclick="window.location.href='/login'" class="btn btn-primary btn-lg">Submit/View a Quote Request!</button>
+    <div class="row">
+        <div class="containerText">
+
+            <p>
+                Please click the button below to either log in or sign up for a user account. After you log in, you will be able to view/manage
+                your quote requests.
+            </p>
+            <br>
+            <button onclick="window.location.href='/login'" class="btn btn-primary btn-lg">Click to Get Started!</button>
+        </div>
+    </div>
+
 </div>
 
 
