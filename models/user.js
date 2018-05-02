@@ -11,6 +11,8 @@ var userSchema = mongoose.Schema({
         type: Date, default: Date.now()
     },
 
+    is_admin: Boolean, default: 0,
+
 });
 
 userSchema.methods.generateHash = function(password){
