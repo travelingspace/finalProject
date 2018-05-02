@@ -77,7 +77,7 @@ router.post('/add', function(req, res, next){
 /*POST to deactivate a quote request*/
 router.post('/deactivate', function(req, res, next){
 
-    Quote.findByIdAndUpdate(req.body._id, {status: 0})//find the quote record and update the status parameter to 0, which deactivates the quote record
+    Quote.findByIdAndUpdate(req.body._id, {status: 0, })//find the quote record and update the status parameter to 0, which deactivates the quote record
         .then( (originalQuote) => {
             if(originalQuote){
                 res.redirect('/quote');//if quote was found, then redirect to the quotes page
