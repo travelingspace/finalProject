@@ -25,9 +25,9 @@
 <div class="add-quote">
     <h3>Add a New Quote Request</h3>
     <form id="addQuote" class="form-horizontal" action="/add" method="post">
-        <input id="quote-name" name="quoteName" placeholder="enter name"><br>
-        <input id="description" name="description" placeholder="enter request description"><br>
-        <input id="quote-budget" name="budget" placeholder="enter budget"><br>
+        <input id="quote-name" name="quoteName" type="text" placeholder="enter name"><br>
+        <input id="description" name="description" type="text" placeholder="enter request description"><br>
+        <input id="quote-budget" name="budget" type="number" placeholder="enter budget"><br>
         <input id= "userIdString" type="hidden" name="user_id" value="{{userID}}"><br><!--hidden field that passes the logged in user's ID to body request-->
         <input id="add-quote-btn" name="add" type="submit" value="add" class="btn btn-success">
     </form>
@@ -45,7 +45,7 @@
         <ul id="quote-list">
             {{#each quotes}}
                 <li>
-                    <h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>active status:</strong> {{this.status}}
+                    <h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>description:</strong> {{this.description}}
                      <form class="deactivate-form" action="/deactivate" method="post">
                         <input class="btn btn-danger" type="submit" name="deactivate" value="deactivate">
                         <input type="hidden" name="_id" value="{{this._id}}">
