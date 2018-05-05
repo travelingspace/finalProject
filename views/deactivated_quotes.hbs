@@ -26,9 +26,10 @@
                 <table class="table table-dark">
                     <thead>
                     <tr>
-                        <th scope="col">Quote Request Name</th>
+                        <th scope="col">Request Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Request Date</th>
+                        <th scope="col">Budget</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,7 @@
                         <th scope="row">{{this.name}}</th>
                         <td>{{this.description}}</td>
                         <td>{{this.quoteDate}}</td>
+                        <td>${{this.budget}}.00</td>
                     </tr>
 
                     {{/each}}
