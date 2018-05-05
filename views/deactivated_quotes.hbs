@@ -1,37 +1,67 @@
-<head>
-    <style>
-        body{
-            background-color: black;
-            color:whitesmoke;
-        }
+<div class="container">
 
-    </style>
-</head>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" style="font-size:1.5em;">James Houck Consulting: Quote Manager</a>
+            </div>
 
-<h3>Deactivated Quote Requests</h3>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <br>
 
-<br><br>
+    <div class="row">
+        <div class="col-sm-12">
 
-{{#if quotes}}
+            <h3>Deactivated Quote Requests</h3>
 
-   <div class="quotes">
-       {{#each quotes}}
-           <li><h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>description:</strong> {{this.description}}</li>
-       {{/each}}
-   </div>
+            <br>
 
-{{else}}
+            {{#if quotes}}
 
-   <p>No inactive quotes currently exist.</p>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">Quote Request Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Request Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-{{/if}}
+                    {{#each quotes}}
 
-<br>
-<br>
-<br>
-<button onclick="window.location.href='/quote'" class="btn btn-primary">Back to Active Quotes</button>
+                    <tr>
+                        <th scope="row">{{this.name}}</th>
+                        <td>{{this.description}}</td>
+                        <td>{{this.quoteDate}}</td>
+                    </tr>
 
+                    {{/each}}
 
+                    </tbody>
+                </table>
+
+            {{else}}
+
+                <p>No inactive quotes currently exist.</p>
+
+            {{/if}}
+
+            <br>
+            <br>
+            <br>
+            <button onclick="window.location.href='/quote'" class="btn btn-primary">Back to Active Quotes</button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 

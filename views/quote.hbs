@@ -16,11 +16,28 @@
         }
     </style>
 </head>
+
 <div class="container">
 
-    <h2>{{title}}</h2>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="font-size:1.5em;">James Houck Consulting: Quote Manager</a>
+            </div>
 
-    <br>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/logout">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!--*** display a welcome message with the authenticated users name ***-->
     {{#if username}}
         <p style="color:deepskyblue">Hello {{username}}, welcome.</p>
@@ -32,7 +49,7 @@
 
             <!--*** add a quote request section ***-->
             <div class="add-quote">
-                <h3>Add a New Quote Request</h3>
+                <h4>Add a New Quote Request</h4>
                 <form id="addQuote" class="form-horizontal" action="/add" method="post">
                     <input id="quote-name" name="quoteName" type="text" placeholder="enter name" style="font-size: 1.5em;"><br>
                     <textarea id="description" name="description" placeholder="enter request description"></textarea><br>
@@ -51,7 +68,7 @@
     <div class="row>">
 
     <!--*** view a list of submitted quote requests ***-->
-    <h3>Active Quote Requests</h3>
+    <h4>Active Quote Requests</h4>
         <div id="quote-list">
 
             {{#if quotes}}
@@ -84,10 +101,6 @@
 
     <br>
     <br>
-
-
-    <!--*** log out link ***-->
-    <a href="/logout">Log out</a>
 
 </div>
 
