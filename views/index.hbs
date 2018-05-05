@@ -1,40 +1,4 @@
-<head>
-  <style>
-      body {
-          background-color: black;
-          color: lightblue;
-      }
-
-      .jumbotron {
-          background-image: url("../images/img_starry_sky_crop.jpg");
-          text-align: center;
-          background-position: center;
-          background-size: cover;
-          position: relative;
-          color: white;
-          font-family: 'Lucida Console';
-          z-index: 10;
-          padding-top:5%;
-          height: 300px;
-      }
-
-      #jumbotronText {
-          bottom: 0px;
-          position: absolute;
-          margin: auto;
-          text-align: left;
-          width: 100%;
-          margin-bottom: 15px;
-          margin-left: 0 !important;
-       }
-      .containerText{
-          padding-left:5%;
-      }
-  </style>
-</head>
-
-
-<div class="jumbotron" id="cover">
+<div class="jumbotron" id="cover" style="height: 300px">
 
     <div id="jumbotronText">
         <h1>James Houck</h1>
@@ -44,13 +8,14 @@
 </div>
 
 <div class="container">
+    <br><br>
     <div class="row">
         <div class="containerText">
-
             <p>
                 Please click the button below to either log in or sign up for a user account. After you log in, you will be able to view/manage
                 your quote requests.
             </p>
+            <br>
             <br>
             <button onclick="window.location.href='/login'" class="btn btn-primary btn-lg">Click to Get Started!</button>
         </div>
