@@ -103,7 +103,7 @@ router.get('/deactivated', function(req, res, next){
 
     Quote.find({status: 0, userID: userIdString})
         .then( (docs) => {
-            res.render('deactivated_quotes', {quotes: docs, username: authUser.local.username,});
+            res.render('deactivated_quotes', {title:'My Quote Requests', quotes: docs, username: authUser.local.username,});
         })
         .catch( (err) => {
             next(err);

@@ -74,7 +74,10 @@
                 <ul id="quote-list">
                     {{#each quotes}}
                         <li>
-                            <h3>{{this.name}}</h3><strong>request date:</strong> {{this.quoteDate}} <br><strong>description:</strong> {{this.description}}
+                            <h3>{{this.name}}</h3>
+                            <strong>request date:</strong> {{this.quoteDate}}
+                            <br><strong>description:</strong> {{this.description}}
+                            <br><strong>budget:</strong> ${{this.budget}}.00 USD
                             <form class="deactivate-form" action="/deactivate" method="post">
                                 <input class="btn btn-danger" type="submit" name="deactivate" value="deactivate">
                                 <input type="hidden" name="_id" value="{{this._id}}">
